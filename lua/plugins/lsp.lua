@@ -10,6 +10,10 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "rust-analyzer",
+        "ts_ls",
+        "codelldb",
+        "rust-tools",
       })
     end,
   },
@@ -17,6 +21,7 @@ return {
   -- lsp servers
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "simrat39/rust-tools.nvim" },
     opts = {
       inlay_hints = { enabled = true },
       ---@type lspconfig.options
@@ -120,6 +125,29 @@ return {
                   continuation_indent_size = "2",
                 },
               },
+            },
+          },
+        },
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = true,
+              loadOutDirsFromCheck = true,
+              runBuildScripts = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+            inlayHints = {
+              bindingModeHints = { enable = true },
+              chainingHints = { enable = true },
+              closingBraceHints = { enable = true },
+              closureReturnTypeHints = { enable = "always" },
+              lifetimeElisionHints = { enable = "always", useParameterNames = true },
+              parameterHints = { enable = true },
+              typeHints = { enable = true },
             },
           },
         },
