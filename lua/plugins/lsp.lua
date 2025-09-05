@@ -11,9 +11,7 @@ return {
         "typescript-language-server",
         "css-lsp",
         "rust-analyzer",
-        "ts_ls",
         "codelldb",
-        "rust-tools",
       })
     end,
   },
