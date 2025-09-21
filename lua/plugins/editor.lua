@@ -22,8 +22,8 @@ return {
         function()
           local builtin = require("telescope.builtin")
           builtin.find_files({
-            hidden = true,
-            no_ignore = false, -- respect .gitignore
+            hidden = false,
+            no_ignore = true, -- respect .gitignore
           })
         end,
         desc = "Lists files in cwd, respects .gitignore, ignores node_modules",
